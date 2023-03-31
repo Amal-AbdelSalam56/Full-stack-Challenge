@@ -30,6 +30,7 @@ export default function Srchtable() {
       .then((response) => response.text())
       .then((result) => {
         console.log(result);
+
         settableData(result);
 
         // dispatch(changeData(result));
@@ -64,21 +65,8 @@ export default function Srchtable() {
       <Table striped bordered hover>
         <tbody>
           <tr>
-            <th>valid</th>
-            <th>number</th>
-            <th>country_code</th>
-            <th>location</th>
-            <th>line_type</th>
+            <th>Data OF The Number</th>
           </tr>
-          {/* 
-          {Object.keys(tableData).map((key, i) => {
-            return (
-              <p key={i}>
-                <span> {key}</span>
-                <span> {tableData[key]}</span>
-              </p>
-            );
-          })} */}
           <tr>
             <th>{tableData}</th>
           </tr>
