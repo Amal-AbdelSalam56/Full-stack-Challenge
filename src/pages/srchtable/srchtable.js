@@ -17,7 +17,7 @@ export default function Srchtable() {
   };
 
   const [value, setValue] = useState([]);
-  const [data, setdata] = useState([]);
+  const [tableData, settableData] = useState([]);
   // const data = useSelector((state) => state.data.data);
   // const dispatch = useDispatch();
 
@@ -30,7 +30,7 @@ export default function Srchtable() {
       .then((response) => response.text())
       .then((result) => {
         console.log(result);
-        setdata(result);
+        settableData(result);
 
         // dispatch(changeData(result));
       })
@@ -62,7 +62,7 @@ export default function Srchtable() {
       </Button>
 
       <Table striped bordered hover>
-        <thead>
+        <tbody>
           <tr>
             <th>valid</th>
             <th>number</th>
@@ -70,14 +70,17 @@ export default function Srchtable() {
             <th>location</th>
             <th>line_type</th>
           </tr>
-        </thead>
-        <tbody>
+          {/* 
+          {Object.keys(tableData).map((key, i) => {
+            return (
+              <p key={i}>
+                <span> {key}</span>
+                <span> {tableData[key]}</span>
+              </p>
+            );
+          })} */}
           <tr>
-            <th>{data.valid}</th>
-            <th>{data.number}</th>
-            <th>{data.country_code}</th>
-            <th>{data.location}</th>
-            <th>{data.line_type}</th>
+            <th>{tableData}</th>
           </tr>
         </tbody>
       </Table>
