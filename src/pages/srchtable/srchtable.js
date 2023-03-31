@@ -3,12 +3,12 @@ import { Button, Form } from "react-bootstrap";
 import { useState } from "react";
 import Table from "react-bootstrap/Table";
 
-import { changeData } from "../../store/actions/data";
-import { useDispatch, useSelector } from "react-redux";
+// import { changeData } from "../../store/actions/data";
+// import { useDispatch, useSelector } from "react-redux";
 
 export default function Srchtable() {
   var myHeaders = new Headers();
-  myHeaders.append("apikey", "oeO5eyZG2w71N9511VWjIP0NBZI0N07z");
+  myHeaders.append("apikey", "VT345uYuYnVsLgGsdYofLoT06J93Fc83");
 
   var requestOptions = {
     method: "GET",
@@ -17,9 +17,9 @@ export default function Srchtable() {
   };
 
   const [value, setValue] = useState([]);
-  // const [data, setdata] = useState({});
-  const data = useSelector((state) => state.data.data);
-  const dispatch = useDispatch();
+  const [data, setdata] = useState([]);
+  // const data = useSelector((state) => state.data.data);
+  // const dispatch = useDispatch();
 
   const searchData = (vlu) => {
     console.log(vlu);
@@ -30,8 +30,9 @@ export default function Srchtable() {
       .then((response) => response.text())
       .then((result) => {
         console.log(result);
-        // setdata(result);
-        dispatch(changeData(result));
+        setdata(result);
+
+        // dispatch(changeData(result));
       })
       .catch((error) => console.log("error", error));
   };
@@ -89,6 +90,11 @@ export default function Srchtable() {
 // data:
 // "valid": true,
 // "number": "14158586273",
+// "local_format": "4158586273",
+// "international_format": "+14158586273",
+// "country_prefix": "+1",
 // "country_code": "US",
+// "country_name": "United States of America",
 // "location": "Novato",
+// "carrier": "AT&T Mobility LLC",
 // "line_type": "mobile"
